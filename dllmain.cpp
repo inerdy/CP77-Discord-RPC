@@ -12,7 +12,7 @@
 using namespace std::literals;
 using namespace std::chrono_literals;
 
-constexpr auto MODNAME = "cyberlife"sv;
+constexpr auto MODNAME = "CP77 Discord RPC"sv;
 
 static discord::Core* core{};
 static std::filesystem::path rootDir;
@@ -137,10 +137,10 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reasonForCall, LPVOID) {
 
 discord::Result updatePresence() {
     // Only attempt updating presence if file exists
-    if (std::filesystem::exists(rootDir / "discord_info.json")) {
+    if (std::filesystem::exists(rootDir / "middleman.json")) {
 
         // Open and read json
-        std::ifstream middlemanFile (rootDir / "discord_info.json");
+        std::ifstream middlemanFile (rootDir / "middleman.json");
         if (middlemanFile.is_open()) {
             jsoncons::json middleman = jsoncons::json::parse(middlemanFile);
             middlemanFile.close();
