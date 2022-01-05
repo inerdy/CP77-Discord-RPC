@@ -137,10 +137,10 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reasonForCall, LPVOID) {
 
 discord::Result updatePresence() {
     // Only attempt updating presence if file exists
-    if (std::filesystem::exists(rootDir / "save/discord_info.json")) {
+    if (std::filesystem::exists(rootDir / "discord_info.json")) {
 
         // Open and read json
-        std::ifstream middlemanFile (rootDir / "save/discord_info.json");
+        std::ifstream middlemanFile (rootDir / "discord_info.json");
         if (middlemanFile.is_open()) {
             jsoncons::json middleman = jsoncons::json::parse(middlemanFile);
             middlemanFile.close();
